@@ -1,14 +1,18 @@
-# Write a script to extract email addresses from a given text file.
 import re
 
-match = r"[\w]+[\d]*\@[\w]+[\d]*\.\bcom\b$"
-email = str(input("Enter an email: ")).strip()
-with open("email.txt", "w") as file:
-    file.write(email)
+# Define a generic email pattern
+email_pattern = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b"
 
+# Read email addresses from the text file
 with open("email.txt", "r") as file:
     lines = file.read()
-    if re.search(match, email) and email in lines:
-        print(str(lines))
+
+    # Extract and print valid email addresses
+    found_emails = re.findall(email_pattern, lines)
+
+    if found_emails:
+        print("Emails found in the file:")
+        for email in found_emails:
+            print(email)
     else:
-        print("No lines detected")
+        print("No valid email addresses found in the file.")
