@@ -1,0 +1,9 @@
+example@gmail.com
+
+example@yahoo.net
+
+correct_example@business.co
+
+wrong_example@gmail
+
+wrong_example
